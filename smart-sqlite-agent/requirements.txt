@@ -1,0 +1,6 @@
+fastmcp
+uvicorn
+llama-index
+llama-index-tools-mcp
+python-dotenv
+openai

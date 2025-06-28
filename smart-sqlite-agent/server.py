@@ -4,9 +4,7 @@ from fastmcp import FastMCP
 # Initialize the MCP server with a name
 mcp = FastMCP("Sqlite MCP Server")
 
-# ============================
 # Ensure the database exists
-# ============================
 
 def init_db():
     conn = sqlite3.connect("demo.db")
@@ -56,12 +54,14 @@ def read_data(query: str = "SELECT * FROM people") -> list:
         print(f"[ERROR] Query failed: {str(e)}")
         return []
 
-
 @mcp.tool()
 def greet(name: str) -> str:
-    """Return a simple greeting message."""
-    print(f"[DEBUG] Greeting requested for: {name}")
-    return f"Hello, {name}!"
+    return (
+        f"Hello, {name}! \n\n"
+        "I'm a smart agent built by Sai Kiran. "
+        "I use GPT-powered reasoning to interact with an SQLite database using natural language. "
+        "Ask me anything—from inserting records to fetching data—and I'll handle the logic behind the scenes!"
+    )
 
 # Start the MCP server
 if __name__ == "__main__":
